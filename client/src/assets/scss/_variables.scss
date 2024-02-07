@@ -5,22 +5,51 @@
 
 $colors: (
   // base
-  'primary': #000,
-  'alt': #000,
+  'primary': #4834d4,
   'blck': #000,
   'whte': #fff,
 
   // text
   'text': #000,
   'text-alt': #a8a8a8,
-  'text-secondary': #4834d4,
 
   // bg
-  'bg': #000,
-  'bg-secondary': #e0e0e0,
-  'bg-tertiary': #fbd12a,
+  'bg': #e0e0e0,
+  'bg-alt': #f1f1f1,
+
+  // border
+  'border': #888888,
 
   // actions
   'success': #259243,
   'error': #f00
 );
+
+/* EFFECTS
+------------------------ */
+$tr-1: ease;
+$tr-2: ease-in;
+$tr-3: ease-out;
+$tr-4: ease-in-out;
+$time: 0.3s;
+$tr: ease-in;
+$time-1: 0.1s;
+$time-2: 0.2s;
+$time-3: 0.3s;
+$time-4: 0.4s;
+$time-5: 0.5s;
+$time-10: 1s;
+
+/* BREAKPOINTS
+------------------------- */
+$xs: 480px;
+$s: 620px;
+$m: 768px;
+$ms: 1024px;
+$mt: 1200px;
+$l: 1366px;
+$ls: 1440px;
+$lt: 1536px;
+$xl: 1920px;
+$xls: 2560px;
+$retina: '(-webkit-min-device-pixel-ratio: 1.5),(min-resolution: 1.5dppx),(min-resolution: 144dpi)';

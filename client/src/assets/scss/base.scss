@@ -19,10 +19,191 @@
   --pad-l-neg: -60px;
   --pad-xl-neg: -110px;
 
+  /** SPACING SYSTEM
+  ------------------------- */
+  --gap-xs-static: 8px;
+  --gap-s-static: 16px;
+  --gap-m-static: 24px;
+  --gap-l-static: 32px;
+  --gap-xs: var(--gap-xs-static);
+  --gap-s: var(--gap-s-static);
+  --gap-m: var(--gap-m-static);
+  --gap-l: var(--gap-l-static);
+
+  @include mq($l) {
+    --gap-xs: 16px;
+    --gap-s: 24px;
+    --gap-m: 32px;
+    --gap-l: 48px;
+  }
+
   /** Z-INDEX SYSTEM
   ------------------------- */
   --index-1: 100; // Куки, чаты, фиксированные баннеры, кнопка вверх
   --index-2: 200; // Шапка
   --index-3: 1100; // Модалки
   --index-4: 1200; // Система уведомлений
+
+  /** BORDER-RADIUS SYSTEM
+  ------------------------- */
+  --radius-xs: 5px;
+}
+
+html {
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  --scrollbar-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  min-width: 360px;
+  min-height: 100vh;
+  margin: 0;
+  margin-right: var(--scrollbar-width);
+  color: cl(text);
+  font-size: 16px;
+  font-family: var(--font-primary);
+  line-height: 120%;
+  word-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: cl(primary) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  @include mq($l) {
+    background: transparent;
+  }
+}
+
+::-webkit-scrollbar-thumb {
+  @include mq($l) {
+    background-color: cl(primary);
+    border-radius: 10px;
+  }
+}
+
+::selection {
+  color: cl(bg);
+  text-shadow: none;
+  background: cl(primary);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+}
+
+a {
+  color: cl(text);
+  text-decoration: none;
+  transition: color $time $tr;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-primary);
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+}
+
+div[class*='__text'],
+div[class*='__details'],
+div[class*='__note'] {
+  p:only-of-type,
+  p:last-of-type {
+    margin: 0;
+  }
+}
+
+[class*='image'] img {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+.container {
+  --pad: var(--pad-s);
+  --pad-neg: var(--pad-s-neg);
+
+  width: 100%;
+  max-width: 1000px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 0 var(--pad);
+
+  @include mq($m) {
+    --pad: var(--pad-m);
+    --pad-neg: var(--pad-m-neg);
+  }
+
+  @include mq($l) {
+    --pad: var(--pad-l);
+    --pad-neg: var(--pad-l-neg);
+  }
+
+  @include mq($xl) {
+    --pad: var(--pad-xl);
+    --pad-neg: var(--pad-xl-neg);
+  }
+}
+
+.container--gap-top {
+  padding-top: var(--gap-l);
+}
+
+.section {
+  margin-bottom: 20px;
+
+  @include mq($m) {
+    margin-bottom: 40px;
+  }
+}
+
+.block-title {
+  @include font(24px, 1.1, 700);
+  margin: 0 0 30px;
+  color: cl(text);
+
+  @include mq-max($m) {
+    font-size: 18px;
+    margin: 0 0 20px;
+  }
+}
+
+.block-title--centered {
+  text-align: center;
 }

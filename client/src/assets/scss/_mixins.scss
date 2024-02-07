@@ -1,0 +1,48 @@
+@mixin font($size, $line-height, $weight: null) {
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $line-height;
+}
+
+@mixin center() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin reset-list() {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+// == media queries
+@mixin mq($canvas, $canvas2: null) {
+  @if $canvas {
+    @media only screen and (min-width: $canvas) {
+      @content;
+    }
+  }
+}
+
+@mixin mq-range($canvas-min, $canvas-max) {
+  @if $canvas-min and $canvas-max {
+    @media only screen and (min-width: $canvas-min) and (max-width: ($canvas-max - 1)) {
+      @content;
+    }
+  }
+}
+
+@mixin mq-max($canvas) {
+  @if $canvas {
+    @media only screen and (max-width: ($canvas - 1)) {
+      @content;
+    }
+  }
+}
+
+@mixin mq-hover() {
+  @media (hover: hover) {
+    @content;
+  }
+}

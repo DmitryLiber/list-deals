@@ -1,0 +1,28 @@
+:root {
+  @if $colors {
+    @each $key, $value in $colors {
+      --color-#{$key}: #{$value};
+      --color-#{$key}--rgb: #{hextorgb($value)};
+    }
+  }
+
+  --font-primary: 'Calibri', sans-serif;
+
+  /* WRAPPER PADDINGS
+  ------------------------- */
+  --pad-s: 17px;
+  --pad-m: 32px;
+  --pad-l: 60px;
+  --pad-xl: 110px;
+  --pad-s-neg: -17px;
+  --pad-m-neg: -32px;
+  --pad-l-neg: -60px;
+  --pad-xl-neg: -110px;
+
+  /** Z-INDEX SYSTEM
+  ------------------------- */
+  --index-1: 100; // Куки, чаты, фиксированные баннеры, кнопка вверх
+  --index-2: 200; // Шапка
+  --index-3: 1100; // Модалки
+  --index-4: 1200; // Система уведомлений
+}

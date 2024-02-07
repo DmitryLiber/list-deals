@@ -1,0 +1,26 @@
+@use 'sass:math';
+
+/* COLORS
+------------------------ */
+
+$colors: (
+  // base
+  'primary': #000,
+  'alt': #000,
+  'blck': #000,
+  'whte': #fff,
+
+  // text
+  'text': #000,
+  'text-alt': #a8a8a8,
+  'text-secondary': #4834d4,
+
+  // bg
+  'bg': #000,
+  'bg-secondary': #e0e0e0,
+  'bg-tertiary': #fbd12a,
+
+  // actions
+  'success': #259243,
+  'error': #f00
+);

@@ -1,0 +1,14 @@
+@use 'sass:math';
+@use 'sass:meta';
+
+@function hextorgb($hex) {
+  @return red($hex), green($hex), blue($hex);
+}
+
+@function cl($name, $opacity: false) {
+  @if $opacity {
+    @return rgba(var(--color-#{unquote($name)}--rgb), $opacity);
+  } @else {
+    @return var(--color-#{unquote($name)});
+  }
+}

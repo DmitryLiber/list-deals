@@ -1,14 +1,20 @@
 <script setup lang="ts">
-import { defineComponent, ref, computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import { useEntitiesStore } from '@/stores/entities'
-import Button from '@/components/ui/Button.vue'
-import Select from '@/components/ui/Select.vue'
-import Table from '@/components/module/Table.vue'
+import Button from '@/components/ui/ButtonDefault.vue'
+import Select from '@/components/ui/SelectDefault.vue'
+import Table from '@/components/module/TableDefault.vue'
 import TableControls from '@/components/TableControls.vue'
 import Auth from '@/components/Auth.vue'
-const entities = useEntitiesStore()
+import { API } from '@/api/amoCRM/fetch'
 
+const entities = useEntitiesStore()
 const isAuth = computed(() => entities.serverInfo.access_token === undefined)
+
+onMounted(() => {
+  API.auth()
+})
+
 </script>
 
 <template>

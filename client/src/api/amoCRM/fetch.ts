@@ -1,7 +1,5 @@
 import type { TAuth } from '@/assets/types/TAuth'
 import { useEntitiesStore } from '@/stores/entities'
-const entities = useEntitiesStore()
-
 class fetchAPI {
   // async get(params: string | number) {
   //   try {
@@ -15,29 +13,33 @@ class fetchAPI {
   // }
 
   async auth() {
+    const entities = useEntitiesStore()
+    const ID = 31550986
+
     try {
-      const response = await fetch(`https://test.gnzs.ru/oauth/get-token.php`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-Client-Id': ''
-        }
-      })
+      const response = await fetch(`http://localhost:4000/auth?id=${ID}`)
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
 
       const json = await response.json()
 
-      if (json.status === 200) {
+      if(json){
         entities.setServerInfo({
           access_token: json.access_token,
           base_domain: json.base_domain
         } as TAuth)
       }
+
     } catch (err) {
       return err
     }
   }
 
   async post(type: string, body: Object = {}) {
+    const entities = useEntitiesStore()
+
     try {
       const cfg = {
         method: 'POST',

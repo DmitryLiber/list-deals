@@ -1,6 +1,6 @@
 <script lang="ts">
 import LoaderCircle from './LoaderCircle.vue'
-import { defineComponent, ref, computed } from 'vue'
+import { defineComponent, computed } from 'vue'
 
 export default defineComponent({
   components: {
@@ -28,8 +28,6 @@ export default defineComponent({
     return {
       buttonClass,
       isLoading,
-      loading: props.loading,
-      href: props.href,
       attrs
     }
   }

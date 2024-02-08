@@ -1,6 +1,7 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
 import type { TAuth } from '@/assets/types/TAuth'
+
 export const useEntitiesStore = defineStore('entities', () => {
   const list = ref([])
   const selectedEntity = ref('')
@@ -12,7 +13,7 @@ export const useEntitiesStore = defineStore('entities', () => {
     // this.list.push('123')
   }
 
-  function setServerInfo({}) {
+  function setServerInfo(serverInfo: TAuth) {
     this.serverInfo = serverInfo
   }
 

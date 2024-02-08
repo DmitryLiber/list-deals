@@ -1,4 +1,4 @@
-<script>
+<script lang='ts'>
 import { ref, watch, onMounted } from 'vue'
 
 export default {
@@ -10,7 +10,7 @@ export default {
     default: {
       type: Object,
       required: false,
-      default: { value: '', name: 'Не выбрано' }
+      default: { value: '', name: 'Не выбрано' } as Object
     },
     name: {
       type: String,

@@ -11,10 +11,7 @@ import { API } from '@/api/amoCRM/fetch'
 const entities = useEntitiesStore()
 const isAuth = computed(() => entities.serverInfo.access_token === undefined)
 
-onMounted(() => {
-  API.auth()
-})
-
+onMounted(() => API.auth())
 </script>
 
 <template>
@@ -29,8 +26,8 @@ onMounted(() => {
           :options="[
             { value: '', name: 'Не выбрано' },
             { value: 'leads', name: 'Сделка' },
-            { value: 'contact', name: 'Контакт' },
-            { value: 'company', name: 'Компания' }
+            { value: 'contacts', name: 'Контакт' },
+            { value: 'companies', name: 'Компания' }
           ]"
           name="nameEntity"
           class="select"

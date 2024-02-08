@@ -10,8 +10,8 @@ const entities = useEntitiesStore()
       <th class="table__cell table__title">Название</th>
     </tr>
     <tr v-for="(row, rowIndex) in entities.list" :key="rowIndex" class="table__row">
-      <td class="table__cell">{{ row }}</td>
-      <td class="table__cell"></td>
+      <td class="table__cell" width="60px">{{ row.id }}</td>
+      <td class="table__cell">{{ row.name }}</td>
     </tr>
   </table>
 </template>
